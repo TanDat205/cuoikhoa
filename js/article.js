@@ -1,33 +1,38 @@
 const productList = [
-    { name: "Sản phẩm A", description: "Mô tả sản phẩm A", price: 100, Image:"img/headphone-black-walnut.webp"},
-    { name: "Sản phẩm A", description: "Mô tả sản phẩm A", price: 100, Image:"img/headphone-black-walnut.webp"},
-    { name: "Sản phẩm A", description: "Mô tả sản phẩm A", price: 100, Image:"img/headphone-black-walnut.webp"},
+  { 
+    name: "Sản phẩm A", 
+    description: "Mô tả sản phẩm A", 
+    price: 100, 
+    Image:"img/headphone-black-walnut.webp"
+  },
+  { 
+    name: "Sản phẩm B", 
+    description: "Mô tả sản phẩm B", 
+    price: 200, 
+    Image:"img/headphone-black-walnut.webp"
+  },
+  { 
+    name: "Sản phẩm C", 
+    description: "Mô tả sản phẩm C", 
+    price: 300, 
+    Image:"img/headphone-black-walnut.webp"
+  }
+];
 
-  ];
+const productListElement = document.querySelector(".product-listitem");
 
+for (let i = 0; i < productList.length; i++) {
+  const product = productList[i];
 
+  const productElement = document.createElement("div");
+  productElement.classList.add("product");
 
+  productElement.innerHTML = `
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p>Giá: ${product.price} đồng</p>
+      <img src="${product.Image}" alt="${product.name}">
+  `;
 
-function searchProducts() {
-    const searchTerm = document.querySelector("input[type='text']").value;
-    const searchResults = document.querySelector(".search-results");
-    // Xóa các kết quả cũ trước khi tìm kiếm lại
-    searchResults.innerHTML = "";
-  
-    // Lặp qua danh sách sản phẩm để tìm kiếm các sản phẩm có tên tương ứng
-    productList.forEach((product) => {
-      if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-        // Nếu tìm thấy sản phẩm, thêm thông tin sản phẩm vào kết quả tìm kiếm
-        const productElement = document.createElement("div");
-        productElement.classList.add("product");
-        productElement.innerHTML = `
-          <h3>${product.name}</h3>
-          <p>${product.description}</p>
-          <p>Giá: $${product.price}</p>
-          <img>${product.Image}</img>
-          <hr>
-        `;
-        searchResults.appendChild(productElement);
-      }
-    });
+  productListElement.appendChild(productElement);
 }
