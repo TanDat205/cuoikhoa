@@ -237,6 +237,7 @@
 }
   
 #header__cart-list {
+    resize:horizontal; 
     display: none;
     position: fixed;
     top: 0; /* đặt vị trí lên đầu trang */
@@ -247,6 +248,10 @@
     border: 1px solid black;
     z-index: 1;
     overflow: auto;
+}
+.header-cart-content{
+    text-align: center;
+    margin-top: -8rem;
 }
   
 .header__cart-icon-link {
